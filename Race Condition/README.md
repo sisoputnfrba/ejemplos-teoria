@@ -1,4 +1,4 @@
-Race Condition
+Race Condition - Elizabeth Sosa
 ===============
 
 Para compilar en linux ejecutar:
