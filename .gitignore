@@ -1,10 +1,8 @@
 # Compiled source #
 ###################
 *.o
+*.
 
 # Temp files #
 ###################
 *.*~
-
-
-#Hola, yo soy un cambio
