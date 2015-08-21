@@ -1,3 +1,6 @@
+Linux: Son hilos o procesos?
+============================
+
 Compilar con: `gcc -o print-pid-and-tid main.c -lpthread`
 Ejecutar con `./print-pid-and-tid`
 
