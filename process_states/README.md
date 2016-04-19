@@ -3,9 +3,12 @@ Process states
 
 - Verificación de los estados que usa linux para los procesos
 
-Para compilar en linux ejecutar: `gcc -g -o cpu_io cpu_io.c`
-
 El programa cpu_io.c alterna su tiempo tareas de cpu de i/o. La idea es ejecutar el programa e ir revisando los diferentes estados por los cuales va pasando el programa.
+
+
+###### Para compilar
+`gcc -g -o cpu_io.out cpu_io.c`
+
 
 ###### Pasos a seguir
 1. Compilar el programa
@@ -17,11 +20,11 @@ El programa cpu_io.c alterna su tiempo tareas de cpu de i/o. La idea es ejecutar
 7. Ejecutar el comando para debuguear con gdb: "gdb cpu_io" (y luego tipear "start para iniciar el programa y luego frenarlo en un breakpoint inicial")
 8. Corroborar el estado asignado al proceso que esta siendo debugueado  
 
-Preguntas
+###### Preguntas
 - ¿Que significa la `s` (minúscula) y el `+` al lado del estado del proceso, en la columna STAT?
-- 
 
+```
 //TODO agregar el caso del proceso zombie
 //TODO ver el caso de mas procesos running que procesadores (posible justificacion: /proc)
-
+```
 
