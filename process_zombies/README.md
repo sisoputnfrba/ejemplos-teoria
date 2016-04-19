@@ -7,7 +7,7 @@ Zombies
 `gcc creando_zombies.c`
 
 ###### Pasos a seguir
-1. Correr `watch ps -eo pid,ppid,stat,pmem,rss,cmd | grep out` (TODO agregar algo para que se vean las columnas) 
+1. Correr `watch ps -efo pid,ppid,stat,pmem,rss,cmd`
 2. Correr en otra consola el programa: `./a.out`
 3. Revisar el estado de los procesos
 
