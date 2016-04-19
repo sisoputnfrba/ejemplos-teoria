@@ -1,6 +1,9 @@
 SysCall
 ===============
 
+- Verificación del concepto de wrapper y su relación con una llamada al sistema
+- Verificación de como el sistema operativo realiza una llamada al sistema
+
 Compilarlo de la siguiente manera:
 
 ```gcc -g -static open_syscall.c -o open_syscall ```
