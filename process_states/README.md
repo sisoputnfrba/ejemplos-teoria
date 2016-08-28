@@ -1,7 +1,7 @@
 Process states 
 ===============
+Verificación de los estados que usa linux para los procesos
 
-- Verificación de los estados que usa linux para los procesos
 
 El programa cpu_io.c alterna su tiempo tareas de cpu de i/o. La idea es ejecutar el programa e ir revisando los diferentes estados por los cuales va pasando el programa.
 
