@@ -2,7 +2,7 @@ Privileged Instructions
 ===============
 Verificación de la imposibilidad de parte de un proceso comun, que corre en modo usuario, de poder ejecutar una instruccion privilegiada
 
-El programa intenta ejecutar una instruccion privilegiada. Dado que no es posible a traves del lenguaje C de alto nivel realizar una llamada a una instruccion de asembler, el programa utiliza la keyword propia del compilador gcc `__asm__` para lograr insertar en el binario compilado una llamada directa a una instruccion deseada, la cual es privilegiada.
+El programa intenta ejecutar una instruccion privilegiada. Dado que no es posible a traves del lenguaje C de alto nivel realizar una llamada a una instruccion de asembler, el programa utiliza la keyword propia del compilador gcc `__asm__` [mas info aca](https://gcc.gnu.org/onlinedocs/gcc/Using-Assembly-Language-with-C.html#Using-Assembly-Language-with-C) para lograr insertar en el binario compilado una llamada directa a una instruccion deseada, la cual es privilegiada.
 
 
 ###### Para compilar
