@@ -6,14 +6,14 @@ El programa intenta ejecutar una instruccion privilegiada. Dado que no es posibl
 
 
 ###### Para compilar
-`gcc -g cpu_io.c`
+`gcc -g execute_privileged_instruction.c`
 
 
 ###### Pasos a seguir
-* Abrir el codigo fuente para ver cual instruccion privilegiada se intentará ejecutar (averiguar que hace dicha instruccion). Ignorar temporalmente la llamada comentada a la función signal()
-* Compilar y ejecutar el programa: `./a.out`
+* Abrir el codigo fuente para ver cual instruccion privilegiada se intentará ejecutar (averiguar que hace dicha instruccion). Ignorar temporalmente la funcion sig_handler() y llamada comentada a la función signal()
+* Ejecutar el programa: `./a.out`
 * Analizar el comportamiento ocurrido
-* Validar que el programa compilado efectivamente tiene la instrucción deseada. Para ello, decompilar el programa con el comando: `objdump -d a.out` y luego analizar el assembler de la seccion correspondiente a la función main() (si la salida es muy larga, ejecute  `objdump -d a.out | less` para navegar el resultado usando las telas arriba/abajo)
+* Validar que el programa compilado efectivamente tiene la instrucción deseada. Para ello, decompilar el programa con el comando: `objdump -d a.out` y luego analizar el assembler de la seccion correspondiente a la función main() (si la salida es muy larga, ejecute  `objdump -d a.out | less` para navegar el resultado usando las teclas arriba/abajo)
 * Una vez encontrada la instrucción, salga de la vista tipeando "q"
 
 
