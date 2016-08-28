@@ -46,20 +46,20 @@ void* printDataAndWait(){
 
 	printData();
 
-	sleep(120);
+	sleep(100);
 
 	return EXIT_SUCCESS;
 }
 
 void* printData(){
 
-	pid_t pid, parent_pid, tid;
+	pid_t pid, ppid, tid;
 
 	pid = getpid();
-	parent_pid = getppid();
+	ppid = getppid();
 	tid = syscall(SYS_gettid);
 
-	printf("PID: %d\nPARENT PID: %d\nTID: %d\n\n", pid, parent_pid, tid);
+	printf("PPID: %d\nPID: %d\nTID: %d\n\n", ppid, pid, tid);
 
 	return EXIT_SUCCESS;
 }
