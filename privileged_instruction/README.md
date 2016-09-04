@@ -19,4 +19,6 @@ El programa intenta ejecutar una instruccion privilegiada. Dado que no es posibl
 
 ###### Preguntas
 * ¿Que comportamiento tuvo linux al encontrarse con un proceso que intento ejecutar una instrucción privilegiada?
-* Descomente la llamada a la funcion signal(), para que el proceso capture la señal y ejecute el comportamiento indicado en sig_gandler(). Compile y ejecute el código (deberia llamar a la funcion, y luego finalizar el programa). Modifique el programa para que la funcion sig_handler() no llame a exit(), compile, vuelva a ejecutar y analice el comportamiento del programa.
+* Descomente la llamada a la funcion signal(), para que el proceso capture la señal y ejecute el comportamiento indicado en sig_gandler(). Compile y ejecute el código (deberia llamar a la funcion, y luego finalizar el programa). Analice el comportamiento del programa.
+* Modifique el programa para que la funcion sig_handler() no llame a exit(), compile, vuelva a ejecutar y analice el comportamiento del programa.
+* 
