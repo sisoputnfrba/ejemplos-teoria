@@ -2,7 +2,7 @@ Privileged Instructions
 ===============
 Verificación de la imposibilidad de parte de un proceso comun, que corre en modo usuario, de poder ejecutar una instruccion privilegiada
 
-El programa intenta ejecutar una instruccion privilegiada. Dado que no es posible a traves del lenguaje C de alto nivel realizar una llamada a una instruccion de asembler, el programa utiliza la keyword propia del compilador gcc `__asm__` [mas info aca](https://gcc.gnu.org/onlinedocs/gcc/Using-Assembly-Language-with-C.html#Using-Assembly-Language-with-C) para lograr insertar en el binario compilado una llamada directa a una instruccion deseada, la cual es privilegiada.
+El programa intenta ejecutar una instruccion privilegiada. Dado que no es posible a traves del lenguaje C de alto nivel realizar una llamada a una instruccion de asembler, el programa utiliza la keyword propia del compilador gcc `__asm__` ([mas info aca](https://gcc.gnu.org/onlinedocs/gcc/Using-Assembly-Language-with-C.html#Using-Assembly-Language-with-C)) para lograr insertar en el binario compilado una llamada directa a una instruccion deseada, la cual es privilegiada.
 
 
 ###### Para compilar
@@ -20,5 +20,5 @@ El programa intenta ejecutar una instruccion privilegiada. Dado que no es posibl
 ###### Preguntas
 * ¿Que comportamiento tuvo linux al encontrarse con un proceso que intento ejecutar una instrucción privilegiada?
 * Descomente la llamada a la funcion signal(), para que el proceso capture la señal y ejecute el comportamiento indicado en sig_gandler(). Compile y ejecute el código (deberia llamar a la funcion, y luego finalizar el programa). Analice el comportamiento del programa.
-* Modifique el programa para que la funcion sig_handler() no llame a exit(), compile, vuelva a ejecutar y analice el comportamiento del programa.
-* 
+* Modifique el programa para que la funcion sig_handler() no llame a exit(), compile, vuelva a ejecutar.
+* Siéntase dios por un rato, y luego analice el comportamiento del programa para entender posibles usos del uso de `signal()` en estos casos.
