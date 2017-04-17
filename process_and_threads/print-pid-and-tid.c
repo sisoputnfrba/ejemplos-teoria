@@ -30,10 +30,10 @@ int main(int argc, char** argv){
 		pthread_join(t2, NULL);
 	}else if (pid > 0){ // PADRE
 		printData();
-		pthread_create(&t1, NULL, printDataAndWait, NULL);
-		pthread_create(&t2, NULL, printDataAndWait, NULL);
-		pthread_join(t1, NULL);
-		pthread_join(t2, NULL);
+		//pthread_create(&t1, NULL, printDataAndWait, NULL);
+		//pthread_create(&t2, NULL, printDataAndWait, NULL);
+		//pthread_join(t1, NULL);
+		//pthread_join(t2, NULL);
 		waitpid(pid, NULL, 0);
 	} else { //Error
 		perror("forkeando");
