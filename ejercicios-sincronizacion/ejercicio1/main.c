@@ -17,19 +17,20 @@ void *proceso2()
         sleep(1);
         printf("datos en proceso2: a=%d, b=%d, d=%d\n", a, b, d);
         sem_wait(&semA);
-        a += d;
+        a = a + d;
         sem_post(&semA);
 
-        d *= d;
+        d = d * d;
 
         sem_wait(&semB);
-        b -= d;
+        b = b - d;
         sem_post(&semB);
 
         printf("datos en proceso2 finales: a=%d, b=%d, d=%d\n", a, b, d);
     }
     return 0;
 }
+
 void *proceso1()
 {
     int e = 2;
@@ -40,10 +41,10 @@ void *proceso1()
         sleep(1);
         printf("datos en proceso1: a=%d, b=%d, e=%d\n", a, b, e);
         sem_wait(&semB);
-        b *= e;
+        b = b * e;
         sem_post(&semB);
 
-        e = pow(e, e);
+        e = pow(e, e); // equivalente a e = e ^ e;
 
         sem_wait(&semA);
         a++;
