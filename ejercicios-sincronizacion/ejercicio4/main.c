@@ -1,10 +1,3 @@
-/*
- * main.c
- *
- *  Created on: 18/4/2017
- *      Author: alejandrokrumkamp
- */
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
