@@ -3,7 +3,7 @@
 Dado un sistema con los siguientes tipos de procesos, sincronice su código mediante semáforos sabiendo que hay tres
 impresoras, dos scanners y una variable compartida.
 
-```
+```C
 variables_compartidas a = b = 1;
 
 // tiene N instancias

@@ -11,7 +11,7 @@ Se pide que sincronice el siguiente pseudo­código respetando las reglas establ
 starvation (cuando el avión ya pidió pista). Para ello solamente debe utilizar semáforos, indicando el tipo de los mismos
 y sus valores iniciales.
 
-```
+```C
 pistasLibres = 10; // variable compartida
 
 AVIÓN {
