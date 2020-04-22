@@ -27,7 +27,6 @@ void *proceso2()
         sem_post(&semB);
 
         printf("datos en proceso2 finales: a=%d, b=%d, d=%d\n", a, b, d);
-        sleep(1);
     }
     return 0;
 }
@@ -51,7 +50,6 @@ void *proceso1()
         sem_post(&semA);
 
         printf("datos en proceso1 finales: a=%d, b=%d, e=%d\n", a, b, e);
-        sleep(1);
     }
     return 0;
 }

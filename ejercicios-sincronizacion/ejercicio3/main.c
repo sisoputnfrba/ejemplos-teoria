@@ -15,14 +15,14 @@ sem_t semaforo_impresora, semaforo_variable, semaforo_scanner;
 void usar_impresora()
 {
     printf("IMP-U: El proceso %d esta utilizando una impresora\n", (int)syscall(__NR_gettid));
-    usleep(1000000);
+    sleep(1);
     printf("IMP-L: El proceso %d va a liberar una impresora\n", (int)syscall(__NR_gettid));
 }
 
 void usar_scanner()
 {
     printf("SCAN-U: El proceso %d esta utilizando un scanner\n", (int)syscall(__NR_gettid));
-    usleep(1000000);
+    sleep(1);
     printf("SCAN-L: El proceso %d va a liberar un scanner\n", (int)syscall(__NR_gettid));
 }
 
