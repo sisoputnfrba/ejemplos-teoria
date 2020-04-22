@@ -14,8 +14,8 @@ void *proceso2()
     int d = 1;
     while (1)
     {
+        sleep(1);
         printf("datos en proceso2: a=%d, b=%d, d=%d\n", a, b, d);
-
         sem_wait(&semA);
         a += d;
         sem_post(&semA);
@@ -27,7 +27,7 @@ void *proceso2()
         sem_post(&semB);
 
         printf("datos en proceso2 finales: a=%d, b=%d, d=%d\n", a, b, d);
-        usleep(1000000);
+        sleep(1);
     }
     return 0;
 }
@@ -38,8 +38,8 @@ void *proceso1()
     while (1)
     {
 
+        sleep(1);
         printf("datos en proceso1: a=%d, b=%d, e=%d\n", a, b, e);
-
         sem_wait(&semB);
         b *= e;
         sem_post(&semB);
@@ -51,7 +51,7 @@ void *proceso1()
         sem_post(&semA);
 
         printf("datos en proceso1 finales: a=%d, b=%d, e=%d\n", a, b, e);
-        usleep(1000000);
+        sleep(1);
     }
     return 0;
 }

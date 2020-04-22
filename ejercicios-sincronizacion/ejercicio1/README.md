@@ -27,5 +27,5 @@ proceso2 {
 Para compilar el ejercicio, utilizar el siguiente comando:
 
 ```
-gcc ejercicio1.c -o ej1.out -lpthread -lm
+gcc main.c -o main.out -lpthread -lm
 ```
