@@ -6,10 +6,6 @@
 #include <sys/types.h>
 #include <sys/syscall.h>
 
-/*
-    NOTA: Se podria no repetir logica en algunos lugares, lo dejo como tarea opcional :p
-*/
-
 #define CANTIDAD_RECURSOS 10 // 10 siendo un ejemplo de M
 #define CANTIDAD_INSTANCIAS_POR_RECURSO 3
 #define CANTIDAD_PROCESOS 100 // 100 siendo un ejemplo de N
