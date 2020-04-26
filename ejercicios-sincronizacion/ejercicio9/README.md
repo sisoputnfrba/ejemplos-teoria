@@ -1,52 +1,57 @@
 # Ejercicio:
 
-_Mil gracias a [alekrumkamp](https://github.com/alekrumkamp) por haber hecho y resuelto este ejercicio!_
+Se tiene un programa para simular la ejecución de penales de un partido de fútbol, el cual consta de tres procesos: árbitro, jugador y arquero.
 
-Existe un aeropuerto que se utiliza como base de operaciones de una flota de aviones. Existen muchos aviones, diez
-pistas de aterrizaje / despegue y dos controladores aéreos. Cada vez que un avión desea despegar o aterrizar, debe
-utilizar una pista. Para ello, la misma es solicitada al controlador de entrada, y luego de ser utilizada se le notifica al
-controlador de salida para que vuelva a estar disponible.
-
-Se pide que sincronice el siguiente pseudo­código respetando las reglas establecidas, sin que se produzca deadlock ni
-starvation (cuando el avión ya pidió pista). Para ello solamente debe utilizar semáforos, indicando el tipo de los mismos
-y sus valores iniciales.
+El pseudo­código es el siguiente:
 
 ```C
-pistasLibres = 10; // variable compartida
-
-AVIÓN {
-
-  while(TRUE) {
-    mantenimiento();
-    despegar();
-    volar();
-    aterrizar();
+arbitro {
+  while(1) {
+    dar_orden();
+    validar_tiro();
   }
-
 }
 
-CONTROLADOR ENTRADA {
+jugador {
+  while(1) {
+    posicionarse();
+    patear();
 
-  while(TRUE) {
-    otorgarUnaPista();
-    pistasLibres();
-    log(pistasLibres);
+    if (GOL==TRUE){
+    festejar();
+    else{
+    lamentarse();
   }
-
 }
 
-CONTROLADOR SALIDA {
+arquero {
+  while(1) {
+    posicionarse();
+    atajar();
 
-  while(TRUE) {
-    liberarUnaPista();
-    pistasLibres++;
-    log(pistasLibres);
+    if (GOL==FALSE){
+    festejar();
+    else{
+    lamentarse();
   }
-
 }
 ```
 
-Nota: La función log() imprime por pantalla el valor actual de pistas libres.
+Las reglas que se deben cumplir son las siguientes:
+
+- Existen cinco procesos jugadores, un proceso árbitro y un proceso arquero.
+- Los jugadores no pueden patear si el árbitro no lo indicó.
+- El arquero no puede atajar si el jugador no pateó.
+- El árbitro sólo puede dar la orden cuando el jugador y el arquero están posicionados.
+- Existe una variable global GOL, la cual es modificada por la función validar_tiro(),que indica si el último penal pateado
+  fue gol o no.
+- Una vez que se valide el penal, se le pasará el turno al próximo jugador.
+- Los jugadores siempre patean en un orden definido (ej: jug1, jug2, …, jug5, jug1, jug2, etc).
+- Existe a disposición la función actual() que retorna el id del pateador actual, y la función siguiente() que retorna el id del
+  próximo pateador.
+
+Provea una solución que sincronice los tres procesos usando solamente semáforos, asegurándose que se cumplan las
+reglas establecidas sin producirse deadlock ni starvation. Se deberá inicializar cada semáforo, indicando también su tipo.
 
 Para compilar el ejercicio, utilizar el siguiente comando:
 
