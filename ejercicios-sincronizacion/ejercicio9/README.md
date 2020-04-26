@@ -19,7 +19,7 @@ jugador {
 
     if (GOL==TRUE){
     festejar();
-    else{
+    else {
     lamentarse();
   }
 }
@@ -31,7 +31,7 @@ arquero {
 
     if (GOL==FALSE){
     festejar();
-    else{
+    else {
     lamentarse();
   }
 }
