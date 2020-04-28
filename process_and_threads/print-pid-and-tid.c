@@ -16,6 +16,7 @@
 
 void* printData();
 void* printDataAndWait();
+int global = 0;
 
 int main(int argc, char** argv){
 
@@ -58,8 +59,9 @@ void* printData(){
 	pid = getpid();
 	ppid = getppid();
 	tid = syscall(SYS_gettid);
+	global++;
 
-	printf("PPID: %d\nPID: %d\nTID: %d\n\n", ppid, pid, tid);
+	printf("PPID: %d\nPID: %d\nTID: %d\nGlobal: %d\n\n", ppid, pid, tid, global);
 
 	return EXIT_SUCCESS;
 }

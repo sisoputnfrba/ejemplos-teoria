@@ -14,4 +14,5 @@ Al iniciar, el programa crea un nuevo proceso usando `fork()` y ambos procesos i
 * *  `htop`, podes usar `F4` para filtrar por nombre de programa y `F5` para mostrar en forma de arbol.
 * * `pstree -p pidProceso`
 * Mirar bien los PIDS y TIDs. Investigar como Linux implementa los hilos a nivel kernel.
+* Revisar el valor que tiene la variable `global`en cada caso y compararlo con la cantidad de veces que fue modificada 
 * Descomentar las lineas de codigo correspondientes al padre luego de realizar la llamada `fork()`, permitiendo que cree otros dos hilos con el mismo comportamiento. Repetir el paso anterior
