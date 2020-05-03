@@ -21,7 +21,6 @@ int main(int argc, char** argv) {
 	int failed = s_open(&semaphore, sem_name);
 
 	if (failed) {
-		puts("exiting....");
 		return EXIT_FAILURE;
 	}
 
@@ -47,8 +46,10 @@ int main(int argc, char** argv) {
 }
 
 int s_open(sem_t** semaphore, char * sem_name){
-	//printf("Opening semaphore: %s\n", sem_name);
-	sem_t * openned_semaphore = sem_open(sem_name, O_CREAT, S_IRWXU, 1);
+	// O_CREAT significa "Crear el semaforo si no existe, y si existe abrirlo"
+	// S_IRWU significa "Si se crea el semaforo, hacerlo con permisos Read Write eXecute para el propietario del semaforo"
+	int initial_value = 1;
+	sem_t * openned_semaphore = sem_open(sem_name, O_CREAT, S_IRWXU, initial_value);
 
 	if (openned_semaphore == SEM_FAILED){
 		perror("sem_open");
