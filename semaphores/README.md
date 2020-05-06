@@ -1,4 +1,4 @@
-Playing with Linx Semaphores 
+Playing with Linux Semaphores 
 ===============
 
 ###### Para compilar:
