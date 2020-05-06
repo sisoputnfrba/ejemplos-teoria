@@ -12,6 +12,7 @@
 #include <semaphore.h>
 #include <sys/types.h>
 #include <sys/syscall.h>
+#include "functions.h"
 
 sem_t semaforo_disponible;
 sem_t semaforo_pedido;
@@ -21,40 +22,11 @@ sem_t semaforo_pista_liberada;
 pthread_mutex_t mutex_pistas;
 
 int cantidadAviones = 100;
-int pistasLibres = 10;
 
-void mantenimiento(){
-	printf("%i [Avion] Mantenimiento Realizado \n", (int)syscall(__NR_gettid));
-}
-
-void despegar(){
-	usleep(1000);
-	printf("%i [Avion] Despegue Realizado \n", (int)syscall(__NR_gettid));
-}
-
-void volar(){
-	sleep(1);
-	printf("%i [Avion] Vuelo Realizado \n", (int)syscall(__NR_gettid));
-}
-
-void aterrizar(){
-	usleep(1000);
-	printf("%i [Avion] Aterrizaje Realizado \n", (int)syscall(__NR_gettid));
-}
-
-void otorgarUnaPista(){
-	printf("%i [Controlador Entrada] Pista Otorgada \n", (int)syscall(__NR_gettid));
-}
-
-void liberarUnaPista(){
-	printf("%i [Controlador Salida] Pista Liberada \n", (int)syscall(__NR_gettid));
-}
-void logger(){
-	printf("%i [Log] Pistas libres: %i \n",(int)syscall(__NR_gettid),pistasLibres);
-}
-
-void * avion(){
-	while(1){
+void *avion()
+{
+	while (1)
+	{
 
 		mantenimiento();
 
@@ -70,13 +42,13 @@ void * avion(){
 		sem_wait(&semaforo_disponible);
 		aterrizar();
 		sem_post(&semaforo_pista_liberada);
-
-
 	}
 }
 
-void * controladorEntrada(){
-	while(1){
+void *controladorEntrada()
+{
+	while (1)
+	{
 		sem_wait(&semaforo_pedido);
 		sem_wait(&semaforo_pistas);
 
@@ -88,12 +60,13 @@ void * controladorEntrada(){
 
 		logger();
 		sem_post(&semaforo_disponible);
-
 	}
 }
 
-void * controladorSalida(){
-	while(1){
+void *controladorSalida()
+{
+	while (1)
+	{
 
 		sem_wait(&semaforo_pista_liberada);
 
@@ -105,21 +78,23 @@ void * controladorSalida(){
 
 		logger();
 		sem_post(&semaforo_pistas);
-
 	}
 }
 
-void generarAviones() {
+void generarAviones()
+{
 	int cantidadAvionesCreados = 0;
 	pthread_t hiloAvion;
-	while (cantidadAvionesCreados <= cantidadAviones) {
+	while (cantidadAvionesCreados <= cantidadAviones)
+	{
 		pthread_create(&hiloAvion, NULL, avion, NULL);
 		printf("Cantidad aviones creados: %i|", cantidadAvionesCreados);
 		cantidadAvionesCreados++;
 	}
 }
 
-void generarControladoresAereos() {
+void generarControladoresAereos()
+{
 	pthread_t hiloControladorEntrada, hiloControladorSalida;
 	pthread_create(&hiloControladorEntrada, NULL, controladorEntrada, NULL);
 	pthread_create(&hiloControladorSalida, NULL, controladorSalida, NULL);
@@ -129,13 +104,13 @@ void generarControladoresAereos() {
 	pthread_join(hiloControladorSalida, NULL);
 }
 
-int main(void){
+int main(void)
+{
 
 	sem_init(&semaforo_disponible, 0, 0);
 	sem_init(&semaforo_pedido, 0, 0);
 	sem_init(&semaforo_pistas, 0, 10);
 	sem_init(&semaforo_pista_liberada, 0, 0);
-
 
 	generarAviones(cantidadAviones);
 	generarControladoresAereos();
