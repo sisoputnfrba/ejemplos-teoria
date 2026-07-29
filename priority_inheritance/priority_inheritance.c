@@ -24,10 +24,11 @@ void imprimir_prioridad_real_kernel(const char *nombre_hilo) {
     
     FILE *f = fopen(path, "r");
     if (f) {
-        // Busca el campo de prioridad estatica real (prio)
-        while (fgets(buffer, sizeof(buffer), f) != NULL) {
-            if (strspn(buffer, " \t") < strlen(buffer)) { // Ignora lineas vacias
-                // Prioridad estatica real bajo la clave 'prio'
+        // Descarta la primer linea (que es la del nombre del programa)
+        if (fgets(buffer, sizeof(buffer), f) != NULL) {
+            // Recorremos solo las lineas de metricas
+            while (fgets(buffer, sizeof(buffer), f) != NULL) {
+                // Buscamos la linea que contiene "prio"
                 if (strstr(buffer, "prio") != NULL) {
                     printf("  [%s] TID: %d | Kernel sched -> %s", nombre_hilo, tid, buffer);
                     break;
