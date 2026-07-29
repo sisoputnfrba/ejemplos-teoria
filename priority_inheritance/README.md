@@ -66,3 +66,9 @@ $ ps -eLo pid,lwp,cls,ni,pri,comm | grep priority_inheritance
 $ top -H -p $(pgrep priority_inheritance)
 ```
 (Presionando 'H' en top para alternar la vista detallada por cada hilo creado)
+
+### Demostración OUTPUT:
+
+<img width="798" height="196" alt="Funcionamiento herencia de prioridades" src="https://github.com/user-attachments/assets/28f85b0b-7bf5-49d7-ab4a-3c3862ed8395" />
+
+En la imagen vemos como la prioridad del hilo 1 en el kernel pasa a ser igual a la del hilo 2 (la priroidad se calcula en el sistema operativo como 99 - PRIORIDAD ACTUAL). Posteriormente, luego de liberar el mutex, vuelve a la original.
