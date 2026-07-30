@@ -13,17 +13,17 @@ int main(void) {
 	int hilos = 3;
 	VARIABLE_GLOBAL = 0;
 
-	pthread_t tid[hilos][2];
+	pthread_t thread[hilos];
+	int tid[hilos];
 
 	for (i = 0; i < hilos; i++) {
-		tid[i][1] = i+1;
-
-		pthread_create(&tid[i][0], NULL, (void*) mifuncion, &tid[i][1]);
+		tid[i] = i+1;
+		pthread_create(&thread[i], NULL, (void*) mifuncion, &tid[i]);
 	}
 
 	// Espero finalizacion de todos los hilos para continuar
 	for (i = 0; i < hilos; i++) {
-		pthread_join(tid[i][0], NULL);
+		pthread_join(thread[i], NULL);
 	}
 
 	printf("\n\n Main: Terminaron todos los hilos\n\tVARIABLE_GLOBAL: %d\n\n", VARIABLE_GLOBAL);
